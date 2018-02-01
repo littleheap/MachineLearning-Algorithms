@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -40,6 +38,7 @@ if __name__ == "__main__":
     mpl.rcParams['axes.unicode_minus'] = False
     np.set_printoptions(suppress=True)
 
+    # 0~2π
     x = np.linspace(0, 2 * np.pi, 16, endpoint=False)
     print('时域采样值：', x)
     y = np.sin(2 * x) + np.sin(3 * x + np.pi / 4)
@@ -48,11 +47,13 @@ if __name__ == "__main__":
     N = len(x)
     print('采样点个数：', N)
     print('\n原始信号：', y)
+    # 快速傅里叶变换
     f = np.fft.fft(y)
     print('\n频域信号：', f / N)
     a = np.abs(f / N)
     print('\n频率强度：', a)
 
+    # 逆傅里叶变换
     iy = np.fft.ifft(f)
     print('\n逆傅里叶变换恢复信号：', iy)
     print('\n虚部：', np.imag(iy))

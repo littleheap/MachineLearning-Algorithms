@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #  -*- coding:utf-8 -*-
 
 import os
@@ -36,18 +35,20 @@ def restore2(sigma, u, v, K):  # 奇异值、左特征向量、右特征向量
 
 
 if __name__ == "__main__":
-    A = Image.open("6.son.png", 'r')
+    A = Image.open("son.png", 'r')
     output_path = r'.\Pic'
     if not os.path.exists(output_path):
         os.mkdir(output_path)
     a = np.array(A)
     K = 50
+    # 三通道分别进行SVD分解
     u_r, sigma_r, v_r = np.linalg.svd(a[:, :, 0])
     u_g, sigma_g, v_g = np.linalg.svd(a[:, :, 1])
     u_b, sigma_b, v_b = np.linalg.svd(a[:, :, 2])
     plt.figure(figsize=(10, 10), facecolor='w')
     mpl.rcParams['font.sans-serif'] = [u'simHei']
     mpl.rcParams['axes.unicode_minus'] = False
+    # k为sigma前k个奇异值
     for k in range(1, K + 1):
         print(k)
         R = restore1(sigma_r, u_r, v_r, k)
