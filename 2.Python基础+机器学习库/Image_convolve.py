@@ -1,5 +1,3 @@
-#  -*- coding:utf-8 -*-
-
 import os
 
 import numpy as np
@@ -23,7 +21,7 @@ def convolve(image, weight):
 # image_new = 255 * (image_new - image_new.min()) / (image_new.max() - image_new.min())
 
 if __name__ == "__main__":
-    A = Image.open("6.son.png", 'r')
+    A = Image.open("son.png", 'r')
     output_path = '.\\Pic\\'
     if not os.path.exists(output_path):
         os.mkdir(output_path)
@@ -48,27 +46,26 @@ if __name__ == "__main__":
         I = 255 - np.stack((R, G, B), 2)
         Image.fromarray(I).save(output_path + weight + '.png')
 
-        # # X & Y
-        # print '梯度检测XY：'
+        # X & Y
+        # print('梯度检测XY：')
         # for w in (0, 2):
         #     weight = weight_list[w]
-        #     print weight, 'R',
+        #     print(weight, 'R', )
         #     R = convolve(a[:, :, 0], eval(weight))
-        #     print 'G',
+        #     print('G')
         #     G = convolve(a[:, :, 1], eval(weight))
-        #     print 'B'
+        #     print('B')
         #     B = convolve(a[:, :, 2], eval(weight))
         #     I1 = np.stack((R, G, B), 2)
         #
-        #     weight = weight_list[w+1]
-        #     print weight, 'R',
+        #     weight = weight_list[w + 1]
+        #     print(weight, 'R', )
         #     R = convolve(a[:, :, 0], eval(weight))
-        #     print 'G',
+        #     print('G')
         #     G = convolve(a[:, :, 1], eval(weight))
-        #     print 'B'
+        #     print('B')
         #     B = convolve(a[:, :, 2], eval(weight))
         #     I2 = np.stack((R, G, B), 2)
         #
         #     I = 255 - np.maximum(I1, I2)
         #     Image.fromarray(I).save(output_path + weight[:-2] + '.png')
-
