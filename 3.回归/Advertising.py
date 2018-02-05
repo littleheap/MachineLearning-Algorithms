@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
     path = 'Advertising.csv'
-    # # 手写读取数据 - 请自行分析，在8.2.Iris代码中给出类似的例子
+    # # 手写读取数据 - 请自行分析，在Iris代码中给出类似的例子
     # f = file(path)
     # x = []
     # y = []
