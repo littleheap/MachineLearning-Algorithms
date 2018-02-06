@@ -18,17 +18,22 @@ if __name__ == "__main__":
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
     # print(x_train, y_train)
-    model = Lasso()  #
+    model = Lasso()  # L1正则
     model = Ridge()  # 岭回归
 
+    # 0.001 ~ 100
     alpha_can = np.logspace(-3, 2, 10)
+    # 5折交叉验证，cv是cross verify交叉验证
     lasso_model = GridSearchCV(model, param_grid={'alpha': alpha_can}, cv=5)
     lasso_model.fit(x, y)
     print('验证参数：\n', lasso_model.best_params_)
 
+    # 获取预测值
     y_hat = lasso_model.predict(np.array(x_test))
-    mse = np.average((y_hat - np.array(y_test)) ** 2)  # Mean Squared Error
-    rmse = np.sqrt(mse)  # Root Mean Squared Error
+    # 计算误差平方均值
+    mse = np.average((y_hat - np.array(y_test)) ** 2)
+    # 开方衡量误差程度
+    rmse = np.sqrt(mse)
     print(mse, rmse)
 
     t = np.arange(len(x_test))
