@@ -3,7 +3,7 @@
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.linear_model import LinearRegression, RidgeCV
+from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures
 
