@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -7,36 +8,51 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
+    # 数据路径
     path = 'Advertising.csv'
-    # # 手写读取数据 - 请自行分析，在Iris代码中给出类似的例子
-    # f = file(path)
-    # x = []
-    # y = []
-    # for i, d in enumerate(f):
-    #     if i == 0:
-    #         continue
-    #     d = d.strip()
-    #     if not d:
-    #         continue
-    #     d = map(float, d.split(','))
-    #     x.append(d[1:-1])
-    #     y.append(d[-1])
-    # print(x)
-    # print(y)
-    # x = np.array(x)
-    # y = np.array(y)
 
-    # # Python自带库
-    # f = file(path, 'rb')
-    # print f
-    # d = csv.reader(f)
-    # for line in d:
-    #     print line
-    # f.close()
+    '''
+    # 手写读取数据 - 请自行分析，在Iris代码中给出类似的例子
+    f = open(path)
+    x = []
+    y = []
+    for i, d in enumerate(f):
+        # 第0行数据类别不要
+        if i == 0:
+            continue
+        # 去空格等不标准输入
+        d = d.strip()
+        # 如果没有数据
+        if not d:
+            continue
+        # 分割数据
+        d = list(map(float, d.split(',')))
+        # 排除第一列索引，从第二列读到倒数第二列
+        x.append(d[1:-1])
+        # 最后一列为sale
+        y.append(d[-1])
+    print(x)
+    print(y)
+    x = np.array(x)
+    y = np.array(y)
+    print('------------------------------')
+    '''
 
-    # # numpy读入
-    # p = np.loadtxt(path, delimiter=',', skiprows=1)
-    # print(p)
+    '''    
+    # python自带库
+    with open(path, "rt", encoding="utf-8") as vsvfile:
+        reader = csv.reader(vsvfile)
+        rows = [row for row in reader]
+        print(rows)
+        print('------------------------------')
+    '''
+
+    '''
+    # numpy读入
+    p = np.loadtxt(path, delimiter=',', skiprows=1)  # 省略第1行
+    print(p)
+    print('------------------------------')
+    '''
 
     # pandas读入
     data = pd.read_csv(path)  # TV、Radio、Newspaper、Sales
@@ -50,7 +66,7 @@ if __name__ == "__main__":
     plt.plot(data['TV'], y, 'ro', label='TV')
     plt.plot(data['Radio'], y, 'g^', label='Radio')
     plt.plot(data['Newspaper'], y, 'mv', label='Newspaer')
-    plt.legend(loc='lower right')
+    plt.legend(loc='lower right')  # 图例显示位置
     plt.grid()
     plt.show()
 

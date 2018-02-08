@@ -16,17 +16,18 @@ if __name__ == "__main__":
     print(x)
     print(y)
 
-    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, train_size=0.75)
     # print(x_train, y_train)
-    model = Lasso()  # L1正则
+    # model = Lasso()  # L1正则
     model = Ridge()  # 岭回归
 
     # 0.001 ~ 100
     alpha_can = np.logspace(-3, 2, 10)
-    # 5折交叉验证，cv是cross verify交叉验证
+    # 5折交叉验证，cv是cross verify交叉验证，给定alpha超参数
     lasso_model = GridSearchCV(model, param_grid={'alpha': alpha_can}, cv=5)
+    # 喂数据训练
     lasso_model.fit(x, y)
-    print('验证参数：\n', lasso_model.best_params_)
+    print('超参数：\n', lasso_model.best_params_)
 
     # 获取预测值
     y_hat = lasso_model.predict(np.array(x_test))
