@@ -8,15 +8,18 @@ if __name__ == "__main__":
     N = 100
     x = np.random.rand(N) * 6 - 3  # [-3,3)
     x.sort()
-    y = np.sin(x) + np.random.randn(N) * 0.05
-    print(y)
+    y = np.sin(x) + np.random.randn(N) * 0.05  # 加上一点噪声
+    print('y : \n', y)
     x = x.reshape(-1, 1)  # 转置后，得到N个样本，每个样本都是1维的
-    print(x)
+    print('x : \n', x)
 
+    # 决策树回归：均方误差最小的地方劈开，而不是熵下降速度最快的地方
     reg = DecisionTreeRegressor(criterion='mse', max_depth=9)
     dt = reg.fit(x, y)
+
     x_test = np.linspace(-3, 3, 50).reshape(-1, 1)
     y_hat = dt.predict(x_test)
+
     plt.plot(x, y, 'r*', linewidth=2, label='Actual')
     plt.plot(x_test, y_hat, 'g-', linewidth=2, label='Predict')
     plt.legend(loc='upper left')
@@ -31,7 +34,6 @@ if __name__ == "__main__":
            DecisionTreeRegressor(criterion='mse', max_depth=depth[2]),
            DecisionTreeRegressor(criterion='mse', max_depth=depth[3]),
            DecisionTreeRegressor(criterion='mse', max_depth=depth[4])]
-
     plt.plot(x, y, 'k^', linewidth=2, label='Actual')
     x_test = np.linspace(-3, 3, 50).reshape(-1, 1)
     for i, r in enumerate(reg):

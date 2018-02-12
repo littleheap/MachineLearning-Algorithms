@@ -24,14 +24,16 @@ if __name__ == "__main__":
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     x_prime, y = np.split(data, (4,), axis=1)
 
+    # 枚举特征组合
     feature_pairs = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]]
     plt.figure(figsize=(10, 9), facecolor='#FFFFFF')
+
     for i, pair in enumerate(feature_pairs):
         # 准备数据
         x = x_prime[:, pair]
 
         # 决策树学习
-        clf = DecisionTreeClassifier(criterion='entropy', min_samples_leaf=3)
+        clf = DecisionTreeClassifier(criterion='entropy', min_samples_leaf=3)  # 最小叶子节点数目，小于3个就不分了
         dt_clf = clf.fit(x, y)
 
         # 画图
@@ -64,6 +66,7 @@ if __name__ == "__main__":
         plt.xlim(x1_min, x1_max)
         plt.ylim(x2_min, x2_max)
         plt.grid()
+
     plt.suptitle(u'决策树对鸢尾花数据的两特征组合的分类结果', fontsize=18)
     plt.tight_layout(2)
     plt.subplots_adjust(top=0.92)
