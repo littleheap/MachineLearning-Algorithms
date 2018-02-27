@@ -7,6 +7,11 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
+'''
+    线性回归：目标给每个特征分配合理权重，并额外评估出一个偏移量
+    数据样例：3种不同渠道投入对应的广告收入，TV || Radio || Newspaper => Sales，一共200条数据
+'''
+
 if __name__ == "__main__":
     # 数据路径
     path = 'Advertising.csv'
@@ -88,7 +93,7 @@ if __name__ == "__main__":
     plt.show()
 
     print('-----------------------------------')
-    # 分离训练测试数据
+    # 分离训练测试数据，random_state是随机种子，因为Python中随机种子变化，所以此处固定
     x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=1)
     print(x_train, y_train)
     linreg = LinearRegression()

@@ -18,8 +18,11 @@ if __name__ == "__main__":
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, train_size=0.75)
     # print(x_train, y_train)
-    # model = Lasso()  # L1正则
-    model = Ridge()  # 岭回归
+    # 线性回归：正则项为0
+    # L1正则，Lasso：正则项是系数绝对值和
+    # model = Lasso()
+    # L2正则，岭回归：正则项是系数平方和
+    model = Ridge()
 
     # 0.001 ~ 100
     alpha_can = np.logspace(-3, 2, 10)
