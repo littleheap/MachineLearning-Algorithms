@@ -18,41 +18,47 @@ def show_accuracy(a, b, tip):
 
 
 def load_data(file_name, is_train):
-    data = pd.read_csv(file_name)  # 数据文件路径
-    # print data.describe()
+    # pandas读取csv文件
+    data = pd.read_csv(file_name)
+    # 数据描述：每一列特征数据的情况，包括个数，方差...
+    # print(data.describe())
 
-    # 性别
+    # 性别：规范为0 1
     data['Sex'] = data['Sex'].map({'female': 0, 'male': 1}).astype(int)
 
-    # 补齐船票价格缺失值
+    # 船票价格：缺失值依据pclass阶层相对应的船票价格取中位数补充空缺
     if len(data.Fare[data.Fare.isnull()]) > 0:
         fare = np.zeros(3)
         for f in range(0, 3):
             fare[f] = data[data.Pclass == f + 1]['Fare'].dropna().median()
-        for f in range(0, 3):  # loop 0 to 2
+        for f in range(0, 3):
             data.loc[(data.Fare.isnull()) & (data.Pclass == f + 1), 'Fare'] = fare[f]
 
     # 年龄：使用均值代替缺失值
     # mean_age = data['Age'].dropna().mean()
     # data.loc[(data.Age.isnull()), 'Age'] = mean_age
-    if is_train:
+
+    # 年龄：用随机森林预测代替缺失值
+    if is_train:  # 训练数据中有Survived特征
         # 年龄：使用随机森林预测年龄缺失值
-        print
-        '随机森林预测缺失年龄：--start--'
+        print('随机森林预测缺失年龄（is_train）：--start--')
         data_for_age = data[['Age', 'Survived', 'Fare', 'Parch', 'SibSp', 'Pclass']]
         age_exist = data_for_age.loc[(data.Age.notnull())]  # 年龄不缺失的数据
-        age_null = data_for_age.loc[(data.Age.isnull())]
-        # print age_exist
+        age_null = data_for_age.loc[(data.Age.isnull())]  # 年龄缺失的数据
+        # print(age_exist)
+        # 用存在年龄的数据做随机森林
         x = age_exist.values[:, 1:]
         y = age_exist.values[:, 0]
         rfr = RandomForestRegressor(n_estimators=1000)
         rfr.fit(x, y)
+        # 预测空缺位置年龄
         age_hat = rfr.predict(age_null.values[:, 1:])
-        # print age_hat
+        # print(age_hat)
+        # 用预测值填补空缺年龄
         data.loc[(data.Age.isnull()), 'Age'] = age_hat
-        print('随机森林预测缺失年龄：--over--')
-    else:
-        print('随机森林预测缺失年龄2：--start--')
+        print('随机森林预测缺失年龄（is_train）：--over--')
+    else:  # 测试数据用来填补年龄，没有Survival特征
+        print('随机森林预测缺失年龄（is_not_train）：--start--')
         data_for_age = data[['Age', 'Fare', 'Parch', 'SibSp', 'Pclass']]
         age_exist = data_for_age.loc[(data.Age.notnull())]  # 年龄不缺失的数据
         age_null = data_for_age.loc[(data.Age.isnull())]
@@ -64,15 +70,16 @@ def load_data(file_name, is_train):
         age_hat = rfr.predict(age_null.values[:, 1:])
         # print age_hat
         data.loc[(data.Age.isnull()), 'Age'] = age_hat
-        print('随机森林预测缺失年龄2：--over--')
+        print('随机森林预测缺失年龄（is_not_train）：--over--')
 
     # 起始城市
-    data.loc[(data.Embarked.isnull()), 'Embarked'] = 'S'  # 保留缺失出发城市
+    data.loc[(data.Embarked.isnull()), 'Embarked'] = 'S'  # 赋值出发城市最多的城市
     # data['Embarked'] = data['Embarked'].map({'S': 0, 'C': 1, 'Q': 2, 'U': 0}).astype(int)
-    # print data['Embarked']
+    # print(data['Embarked'])
     embarked_data = pd.get_dummies(data.Embarked)
-    # print embarked_data
+    # print(embarked_data)
     # embarked_data = embarked_data.rename(columns={'S': 'Southampton', 'C': 'Cherbourg', 'Q': 'Queenstown', 'U': 'UnknownCity'})
+    # 将Embark数据重新规划，新增三列
     embarked_data = embarked_data.rename(columns=lambda x: 'Embarked_' + str(x))
     data = pd.concat([data, embarked_data], axis=1)
     print(data.describe())
@@ -87,9 +94,10 @@ def load_data(file_name, is_train):
     x = np.array(x)
     y = np.array(y)
 
-    # 思考：这样做，其实发生了什么？
+    # 做了若干次数据复制
     x = np.tile(x, (5, 1))
     y = np.tile(y, (5,))
+
     if is_train:
         return x, y
     return x, data['PassengerId']
@@ -113,16 +121,16 @@ def write_result(c, c_type):
 
 
 if __name__ == "__main__":
-    x, y = load_data('12.Titanic.train.csv', True)
+    x, y = load_data('Titanic.train.csv', True)
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=1)
 
-    lr = LogisticRegression(penalty='l2')
+    lr = LogisticRegression(penalty='l2')  # L2正则
     lr.fit(x_train, y_train)
     y_hat = lr.predict(x_test)
     lr_rate = show_accuracy(y_hat, y_test, 'Logistic回归 ')
     # write_result(lr, 1)
 
-    rfc = RandomForestClassifier(n_estimators=100)
+    rfc = RandomForestClassifier(n_estimators=100)  #100棵树
     rfc.fit(x_train, y_train)
     y_hat = rfc.predict(x_test)
     rfc_rate = show_accuracy(y_hat, y_test, '随机森林 ')

@@ -1,4 +1,3 @@
-# /usr/bin/python
 # -*- coding:utf-8 -*-
 
 import xgboost as xgb
@@ -8,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 
+# 读数据函数
 def read_data(path):
     y = []
     row = []
@@ -20,10 +20,11 @@ def read_data(path):
         d = d[1:]
         for c in d:
             key, value = c.split(':')
-            row.append(r)
-            col.append(int(key))
-            values.append(float(value))
+            row.append(r)  # 添加行
+            col.append(int(key))  # 添加列
+            values.append(float(value))  # 添加Value
         r += 1
+    # 稀疏矩阵，只存1的地方就行 || 稠密矩阵，0 1在矩阵中全部显示
     x = scipy.sparse.csr_matrix((values, (row, col))).toarray()
     y = np.array(y)
     return x, y
@@ -36,11 +37,11 @@ def show_accuracy(a, b, tip):
 
 
 if __name__ == '__main__':
-    x, y = read_data('12.agaricus_train.txt')
+    x, y = read_data('agaricus_train.txt')
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1, train_size=0.6)
 
     # Logistic回归
-    lr = LogisticRegression(penalty='l2')
+    lr = LogisticRegression(penalty='l2')  # L2正则
     lr.fit(x_train, y_train.ravel())
     y_hat = lr.predict(x_test)
     show_accuracy(y_hat, y_test, 'Logistic回归 ')
