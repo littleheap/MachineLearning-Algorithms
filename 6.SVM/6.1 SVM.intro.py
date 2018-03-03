@@ -39,6 +39,7 @@ if __name__ == "__main__":
     # 准确率
     print(clf.score(x_train, y_train))  # 精度
     y_hat = clf.predict(x_train)
+    print('y_hat：\n', y_hat)
     show_accuracy(y_hat, y_train, '训练集')
     print(clf.score(x_test, y_test))
     y_hat = clf.predict(x_test)
@@ -51,7 +52,7 @@ if __name__ == "__main__":
     grid_test = np.stack((x1.flat, x2.flat), axis=1)  # 测试点
 
     Z = clf.decision_function(grid_test)  # 样本到决策面的距离
-    print(Z)
+    print("Z：\n", Z)
 
     grid_hat = clf.predict(grid_test)  # 预测分类值
     print(grid_hat)

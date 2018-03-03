@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -16,8 +15,11 @@ if __name__ == "__main__":
     print('y =\n', y)
 
     model = svm.SVR(kernel='rbf')
+    # c 取 0.01~100
     c_can = np.logspace(-2, 2, 10)
+    # gamma 取 0.01~100
     gamma_can = np.logspace(-2, 2, 10)
+    # 交叉验证
     svr = GridSearchCV(model, param_grid={'C': c_can, 'gamma': gamma_can}, cv=5)
     svr.fit(x, y)
     print('验证参数：\n', svr.best_params_)

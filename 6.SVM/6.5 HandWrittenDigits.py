@@ -26,13 +26,14 @@ def save_image(im, i):
 
 if __name__ == "__main__":
     print('Load Training File Start...')
-    data = np.loadtxt('14.optdigits.tra', dtype=np.float, delimiter=',')
+    data = np.loadtxt('optdigits.tra', dtype=np.float, delimiter=',')
+    # 除了最后1列都给x，一共64列；最后1列给y
     x, y = np.split(data, (-1,), axis=1)
     images = x.reshape(-1, 8, 8)
     y = y.ravel().astype(np.int)
 
     print('Load Test Data Start...')
-    data = np.loadtxt('14.optdigits.tes', dtype=np.float, delimiter=',')
+    data = np.loadtxt('optdigits.tes', dtype=np.float, delimiter=',')
     x_test, y_test = np.split(data, (-1,), axis=1)
     images_test = x_test.reshape(-1, 8, 8)
     y_test = y_test.ravel().astype(np.int)
@@ -44,7 +45,9 @@ if __name__ == "__main__":
 
     matplotlib.rcParams['font.sans-serif'] = [u'SimHei']
     matplotlib.rcParams['axes.unicode_minus'] = False
+    # 宽度15英寸，长度9英寸，背景白色
     plt.figure(figsize=(15, 9), facecolor='w')
+    # 取3000多个图像的前16个
     for index, image in enumerate(images[:16]):
         plt.subplot(4, 8, index + 1)
         plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')

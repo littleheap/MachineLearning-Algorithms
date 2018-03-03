@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -20,16 +19,18 @@ def show_recall(y, y_hat):
 
 
 if __name__ == "__main__":
-    warnings.filterwarnings("ignore")  # UndefinedMetricWarning
+    warnings.filterwarnings("ignore")  # UndefinedMetricWarning：忽略分母为0情况
     np.random.seed(0)  # 保持每次生成的数据相同
 
     c1 = 990
     c2 = 10
     N = c1 + c2
-    x_c1 = 3 * np.random.randn(c1, 2)
-    x_c2 = 0.5 * np.random.randn(c2, 2) + (4, 4)
+    x_c1 = 3 * np.random.randn(c1, 2)  # 990行*2列
+    print(x_c1)
+    x_c2 = 0.5 * np.random.randn(c2, 2) + (4, 4)  # 10行*2列 围绕（4,4）
     x = np.vstack((x_c1, x_c2))
     y = np.ones(N)
+    # 990*-1  ||  10*+1
     y[:c1] = -1
 
     # 显示大小
@@ -38,7 +39,7 @@ if __name__ == "__main__":
 
     # 分类器
     clfs = [svm.SVC(C=1, kernel='linear'),
-            svm.SVC(C=1, kernel='linear', class_weight={-1: 1, 1: 10}),
+            svm.SVC(C=1, kernel='linear', class_weight={-1: 1, 1: 50}),
             svm.SVC(C=0.8, kernel='rbf', gamma=0.5, class_weight={-1: 1, 1: 2}),
             svm.SVC(C=0.8, kernel='rbf', gamma=0.5, class_weight={-1: 1, 1: 10})]
     titles = 'Linear', 'Linear, Weight=50', 'RBF, Weight=2', 'RBF, Weight=10'
@@ -55,7 +56,6 @@ if __name__ == "__main__":
     plt.figure(figsize=(10, 8), facecolor='w')
     for i, clf in enumerate(clfs):
         clf.fit(x, y)
-
         y_hat = clf.predict(x)
         # show_accuracy(y_hat, y) # 正确率
         # show_recall(y, y_hat)   # 召回率

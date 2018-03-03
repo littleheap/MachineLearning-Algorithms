@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -26,7 +25,7 @@ if __name__ == "__main__":
     print('Fit OK.')
 
     # 思考：系数1.1改成1.5
-    x_test = np.linspace(x.min(), 1.1 * x.max(), 100).reshape(-1, 1)
+    x_test = np.linspace(x.min(), 1.5 * x.max(), 100).reshape(-1, 1)
     y_rbf = svr_rbf.predict(x_test)
     y_linear = svr_linear.predict(x_test)
     y_poly = svr_poly.predict(x_test)

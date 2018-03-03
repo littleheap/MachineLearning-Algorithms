@@ -14,9 +14,12 @@ def show_accuracy(a, b):
 
 
 if __name__ == "__main__":
-    data = np.loadtxt('14.bipartition.txt', dtype=np.float, delimiter='\t')
+    data = np.loadtxt('bipartition.txt', dtype=np.float, delimiter='\t')
+    # 第0 1列给x，从第2列及其往后分给y
     x, y = np.split(data, (2,), axis=1)
+    # 分类标注规范为1 -1
     y[y == 0] = -1
+    # 从列形式变换为行形式
     y = y.ravel()
 
     # 分类器
@@ -35,10 +38,10 @@ if __name__ == "__main__":
     cm_dark = matplotlib.colors.ListedColormap(['g', 'r'])
     matplotlib.rcParams['font.sans-serif'] = [u'SimHei']
     matplotlib.rcParams['axes.unicode_minus'] = False
+    # 窗口大小分别为10 8英寸，背景色为白色
     plt.figure(figsize=(10, 8), facecolor='w')
     for i, clf in enumerate(clfs):
         clf.fit(x, y)
-
         y_hat = clf.predict(x)
         show_accuracy(y_hat, y)  # 准确率
 
@@ -46,7 +49,8 @@ if __name__ == "__main__":
         print('支撑向量的数目：', clf.n_support_)
         print('支撑向量的系数：', clf.dual_coef_)
         print('支撑向量：', clf.support_)
-        print()
+        print('\n')
+
         plt.subplot(2, 2, i + 1)
         grid_hat = clf.predict(grid_test)  # 预测分类值
         grid_hat = grid_hat.reshape(x1.shape)  # 使之与输入的形状相同
@@ -54,7 +58,9 @@ if __name__ == "__main__":
         plt.scatter(x[:, 0], x[:, 1], c=y, edgecolors='k', s=40, cmap=cm_dark)  # 样本的显示
         plt.scatter(x[clf.support_, 0], x[clf.support_, 1], edgecolors='k', facecolors='none', s=100,
                     marker='o')  # 支撑向量
+        # 画等高线
         z = clf.decision_function(grid_test)
+        print('z：\n', z)
         z = z.reshape(x1.shape)
         plt.contour(x1, x2, z, colors=list('krk'), linestyles=['--', '-', '--'], linewidths=[1, 2, 1],
                     levels=[-1, 0, 1])
