@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -11,17 +10,17 @@ from sklearn.metrics import euclidean_distances
 
 def expand(a, b):
     d = (b - a) * 0.1
-    return a-d, b+d
+    return a - d, b + d
 
 
 if __name__ == "__main__":
     matplotlib.rcParams['font.sans-serif'] = [u'SimHei']
     matplotlib.rcParams['axes.unicode_minus'] = False
 
-    t = np.arange(0, 2*np.pi, 0.1)
+    t = np.arange(0, 2 * np.pi, 0.1)
     data1 = np.vstack((np.cos(t), np.sin(t))).T
-    data2 = np.vstack((2*np.cos(t), 2*np.sin(t))).T
-    data3 = np.vstack((3*np.cos(t), 3*np.sin(t))).T
+    data2 = np.vstack((2 * np.cos(t), 2 * np.sin(t))).T
+    data3 = np.vstack((3 * np.cos(t), 3 * np.sin(t))).T
     data = np.vstack((data1, data2, data3))
 
     n_clusters = 3
@@ -32,10 +31,10 @@ if __name__ == "__main__":
     plt.suptitle(u'谱聚类', fontsize=20)
     clrs = plt.cm.Spectral(np.linspace(0, 0.8, n_clusters))
     for i, s in enumerate(np.logspace(-2, 0, 6)):
-        print s
+        print(s)
         af = np.exp(-m ** 2 / (s ** 2)) + 1e-6
         y_hat = spectral_clustering(af, n_clusters=n_clusters, assign_labels='kmeans', random_state=1)
-        plt.subplot(2, 3, i+1)
+        plt.subplot(2, 3, i + 1)
         for k, clr in enumerate(clrs):
             cur = (y_hat == k)
             plt.scatter(data[cur, 0], data[cur, 1], s=40, c=clr, edgecolors='k')
@@ -46,7 +45,7 @@ if __name__ == "__main__":
         plt.xlim((x1_min, x1_max))
         plt.ylim((x2_min, x2_max))
         plt.grid(True)
-        plt.title(ur'$\sigma$ = %.2f' % s, fontsize=16)
+        plt.title(u'$\sigma$ = %.2f' % s, fontsize=16)
     plt.tight_layout()
     plt.subplots_adjust(top=0.9)
     plt.show()

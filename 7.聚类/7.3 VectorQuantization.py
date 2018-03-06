@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from PIL import Image
@@ -22,15 +21,15 @@ def restore_image(cb, cluster, shape):
 
 def show_scatter(a):
     N = 10
-    print '原始数据：\n', a
-    density, edges = np.histogramdd(a, bins=[N,N,N], range=[(0,1), (0,1), (0,1)])
+    print('原始数据：\n', a)
+    density, edges = np.histogramdd(a, bins=[N, N, N], range=[(0, 1), (0, 1), (0, 1)])
     density /= density.max()
     x = y = z = np.arange(N)
     d = np.meshgrid(x, y, z)
 
     fig = plt.figure(1, facecolor='w')
     ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(d[1], d[0], d[2], c='r', s=100*density, marker='o', depthshade=True)
+    ax.scatter(d[1], d[0], d[2], c='r', s=100 * density, marker='o', depthshade=True)
     ax.set_xlabel(u'红色分量')
     ax.set_ylabel(u'绿色分量')
     ax.set_zlabel(u'蓝色分量')
@@ -52,21 +51,21 @@ if __name__ == '__main__':
     matplotlib.rcParams['axes.unicode_minus'] = False
 
     num_vq = 50
-    im = Image.open('16.lena.png')     # 16.son.bmp(100)/16.flower2.png(200)/16.son.png(60)/16.lena.png(50)
+    im = Image.open('lena.png')  # son.bmp(100)/flower2.png(200)/son.png(60)/lena.png(50)
     image = np.array(im).astype(np.float) / 255
     image = image[:, :, :3]
     image_v = image.reshape((-1, 3))
     model = KMeans(num_vq)
     show_scatter(image_v)
 
-    N = image_v.shape[0]    # 图像像素总数
+    N = image_v.shape[0]  # 图像像素总数
     # 选择足够多的样本(如1000个)，计算聚类中心
     idx = np.random.randint(0, N, size=1000)
     image_sample = image_v[idx]
     model.fit(image_sample)
     c = model.predict(image_v)  # 聚类结果
-    print '聚类结果：\n', c
-    print '聚类中心：\n', model.cluster_centers_
+    print('聚类结果：\n', c)
+    print('聚类中心：\n', model.cluster_centers_)
 
     plt.figure(figsize=(15, 8), facecolor='w')
     plt.subplot(121)

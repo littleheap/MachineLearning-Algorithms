@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -7,7 +6,6 @@ import sklearn.datasets as ds
 import matplotlib.colors
 from sklearn.cluster import MeanShift
 from sklearn.metrics import euclidean_distances
-
 
 if __name__ == "__main__":
     N = 1000
@@ -19,7 +17,7 @@ if __name__ == "__main__":
     plt.figure(figsize=(10, 9), facecolor='w')
     m = euclidean_distances(data, squared=True)
     bw = np.median(m)
-    print bw
+    print(bw)
     for i, mul in enumerate(np.linspace(0.1, 0.4, 4)):
         band_width = mul * bw
         model = MeanShift(bin_seeding=True, bandwidth=band_width)
@@ -27,15 +25,15 @@ if __name__ == "__main__":
         centers = ms.cluster_centers_
         y_hat = ms.labels_
         n_clusters = np.unique(y_hat).size
-        print '带宽：', mul, band_width, '聚类簇的个数为：', n_clusters
+        print('带宽：', mul, band_width, '聚类簇的个数为：', n_clusters)
 
-        plt.subplot(2, 2, i+1)
+        plt.subplot(2, 2, i + 1)
         plt.title(u'带宽：%.2f，聚类簇的个数为：%d' % (band_width, n_clusters))
         clrs = []
         for c in np.linspace(16711680, 255, n_clusters):
-            clrs.append('#%06x' % c)
+            clrs.append('#%06x' % np.int(c))
         # clrs = plt.cm.Spectral(np.linspace(0, 1, n_clusters))
-        print clrs
+        print(clrs)
         for k, clr in enumerate(clrs):
             cur = (y_hat == k)
             plt.scatter(data[cur, 0], data[cur, 1], c=clr, edgecolors='none')

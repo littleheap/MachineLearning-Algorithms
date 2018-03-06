@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -11,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 
 def expand(a, b):
     d = (b - a) * 0.1
-    return a-d, b+d
+    return a - d, b + d
 
 
 if __name__ == "__main__":
@@ -48,12 +47,12 @@ if __name__ == "__main__":
 
         y_unique = np.unique(y_hat)
         n_clusters = y_unique.size - (1 if -1 in y_hat else 0)
-        print y_unique, '聚类簇的个数为：', n_clusters
+        print(y_unique, '聚类簇的个数为：', n_clusters)
 
         # clrs = []
         # for c in np.linspace(16711680, 255, y_unique.size):
         #     clrs.append('#%06x' % c)
-        plt.subplot(2, 3, i+1)
+        plt.subplot(2, 3, i + 1)
         clrs = plt.cm.Spectral(np.linspace(0, 0.8, y_unique.size))
         for k, clr in zip(y_unique, clrs):
             cur = (y_hat == k)
@@ -61,7 +60,8 @@ if __name__ == "__main__":
                 plt.scatter(data[cur, 0], data[cur, 1], s=20, c='k')
                 continue
             plt.scatter(data[cur, 0], data[cur, 1], s=30, c=clr, edgecolors='k')
-            plt.scatter(data[cur & core_indices][:, 0], data[cur & core_indices][:, 1], s=60, c=clr, marker='o', edgecolors='k')
+            plt.scatter(data[cur & core_indices][:, 0], data[cur & core_indices][:, 1], s=60, c=clr, marker='o',
+                        edgecolors='k')
         x1_min, x2_min = np.min(data, axis=0)
         x1_max, x2_max = np.max(data, axis=0)
         x1_min, x1_max = expand(x1_min, x1_max)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         plt.xlim((x1_min, x1_max))
         plt.ylim((x2_min, x2_max))
         plt.grid(True)
-        plt.title(ur'$\epsilon$ = %.1f  m = %d，聚类数目：%d' % (eps, min_samples, n_clusters), fontsize=16)
+        plt.title(u'$\epsilon$ = %.1f  m = %d，聚类数目：%d' % (eps, min_samples, n_clusters), fontsize=16)
     plt.tight_layout()
     plt.subplots_adjust(top=0.9)
     plt.show()

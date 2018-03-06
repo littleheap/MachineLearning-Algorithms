@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -10,14 +9,14 @@ from sklearn.cluster import KMeans
 
 def expand(a, b):
     d = (b - a) * 0.1
-    return a-d, b+d
+    return a - d, b + d
 
 
 if __name__ == "__main__":
     N = 400
     centers = 4
     data, y = ds.make_blobs(N, n_features=2, centers=centers, random_state=2)
-    data2, y2 = ds.make_blobs(N, n_features=2, centers=centers, cluster_std=(1,2.5,0.5,2), random_state=2)
+    data2, y2 = ds.make_blobs(N, n_features=2, centers=centers, cluster_std=(1, 2.5, 0.5, 2), random_state=2)
     data3 = np.vstack((data[y == 0][:], data[y == 1][:50], data[y == 2][:20], data[y == 3][:5]))
     y3 = np.array([0] * 100 + [1] * 50 + [2] * 20 + [3] * 5)
 
