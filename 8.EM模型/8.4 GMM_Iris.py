@@ -32,7 +32,9 @@ if __name__ == '__main__':
     x_prime, y = np.split(data, (4,), axis=1)
     y = y.ravel()
 
+    # 3类莺尾花
     n_components = 3
+    # 4个特征6种组合
     feature_pairs = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]]
     plt.figure(figsize=(10, 9), facecolor='#FFFFFF')
     for k, pair in enumerate(feature_pairs):
@@ -46,7 +48,7 @@ if __name__ == '__main__':
         print('预测方差 = \n', gmm.covariances_)
         y_hat = gmm.predict(x)
         order = pairwise_distances_argmin(m, gmm.means_, axis=1, metric='euclidean')
-        # print '顺序：\t', order
+        # print('顺序：\t', order)
 
         n_sample = y.size
         n_types = 3

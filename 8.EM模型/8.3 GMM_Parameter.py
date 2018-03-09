@@ -22,17 +22,30 @@ def accuracy_rate(y1, y2):
 
 if __name__ == '__main__':
     np.random.seed(0)
+    # 协方差为1,2的对角矩阵
     cov1 = np.diag((1, 2))
     N1 = 500
     N2 = 300
     N = N1 + N2
+
+    # 第一类数据
     x1 = np.random.multivariate_normal(mean=(1, 2), cov=cov1, size=N1)
     m = np.array(((1, 1), (1, 3)))
+    # 旋转x1分布
     x1 = x1.dot(m)
+
+    # 第二类数据
     x2 = np.random.multivariate_normal(mean=(-1, 10), cov=cov1, size=N2)
+
     x = np.vstack((x1, x2))
     y = np.array([0] * N1 + [1] * N2)
 
+    '''
+        spherical：圆形
+        diag：对角线
+        tied：方差一样
+        full：方差可以不一样
+    '''
     types = ('spherical', 'diag', 'tied', 'full')
     err = np.empty(len(types))
     bic = np.empty(len(types))
@@ -43,9 +56,13 @@ if __name__ == '__main__':
         bic[i] = gmm.bic(x)
     print('错误率：', err.ravel())
     print('BIC：', bic.ravel())
+
+    # 画图
     xpos = np.arange(4)
     ax = plt.axes()
+    # -0.3~0 || 0.7~1 || 1.7~2 || 2.7~3
     b1 = ax.bar(xpos - 0.3, err, width=0.3, color='#77E0A0')
+    # 0~0.3 || 1~1.3 || 2~2.3 || 3~3.3
     b2 = ax.twinx().bar(xpos, bic, width=0.3, color='#FF8080')
     plt.grid(True)
     bic_min, bic_max = expand(bic.min(), bic.max())

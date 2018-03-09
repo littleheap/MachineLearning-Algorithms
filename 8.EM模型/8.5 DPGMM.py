@@ -29,6 +29,7 @@ if __name__ == '__main__':
     x2 = np.random.multivariate_normal(mean=(-1, 10), cov=cov1, size=N2)
     x = np.vstack((x1, x2))
     y = np.array([0] * N1 + [1] * N2)
+    # 类别初始化为3，实际为2
     n_components = 3
 
     # 绘图使用
@@ -43,8 +44,9 @@ if __name__ == '__main__':
 
     plt.figure(figsize=(9, 9), facecolor='w')
     plt.suptitle(u'GMM/DPGMM比较', fontsize=23)
-
     ax = plt.subplot(211)
+
+    # GMM
     gmm = GaussianMixture(n_components=n_components, covariance_type='full', random_state=0)
     gmm.fit(x)
     centers = gmm.means_
@@ -59,14 +61,21 @@ if __name__ == '__main__':
     plt.scatter(x[:, 0], x[:, 1], s=30, c=y, cmap=cm, marker='o')
 
     clrs = list('rgbmy')
+    # 均值方差两者打包，列举
     for i, cc in enumerate(zip(centers, covs)):
         center, cov = cc
+        # 求特征值和特征向量
         value, vector = sp.linalg.eigh(cov)
+        # 特征值对应椭圆的半长轴和半短轴
         width, height = value[0], value[1]
+        # 标准化
         v = vector[0] / sp.linalg.norm(vector[0])
+        # 弧度转角度
         angle = 180 * np.arctan(v[1] / v[0]) / np.pi
+        # 画椭圆
         e = Ellipse(xy=center, width=width, height=height,
                     angle=angle, color=clrs[i], alpha=0.5, clip_box=ax.bbox)
+        # 加入图中
         ax.add_artist(e)
 
     ax1_min, ax1_max, ax2_min, ax2_max = plt.axis()
@@ -84,7 +93,8 @@ if __name__ == '__main__':
     print('DPGMM均值 = \n', centers)
     print('DPGMM方差 = \n', covs)
     y_hat = dpgmm.predict(x)
-    # print y_hat
+    # 虽然求值有3个，但是实际预测是2个高斯模型
+    # print(y_hat)
 
     ax = plt.subplot(212)
     grid_hat = dpgmm.predict(grid_test)
@@ -93,6 +103,7 @@ if __name__ == '__main__':
     plt.scatter(x[:, 0], x[:, 1], s=30, c=y, cmap=cm, marker='o')
 
     for i, cc in enumerate(zip(centers, covs)):
+        # 过滤第3类
         if i not in y_hat:
             continue
         center, cov = cc

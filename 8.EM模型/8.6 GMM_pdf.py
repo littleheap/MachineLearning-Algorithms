@@ -10,12 +10,14 @@ from matplotlib.patches import Ellipse
 import warnings
 
 
+# 扩容画图尺寸函数
 def expand(a, b, rate=0.05):
     d = (b - a) * rate
     return a - d, b + d
 
 
 if __name__ == '__main__':
+    # 过滤异常警报
     warnings.filterwarnings(action='ignore', category=RuntimeWarning)
     np.random.seed(0)
     cov1 = np.diag((1, 2))
@@ -47,6 +49,7 @@ if __name__ == '__main__':
     x1, x2 = np.mgrid[x1_min:x1_max:500j, x2_min:x2_max:500j]
     grid_test = np.stack((x1.flat, x2.flat), axis=1)
     print(gmm.score_samples(grid_test))
+    # 负对数似然，值越大，概率越低
     grid_hat = -gmm.score_samples(grid_test)
     grid_hat = grid_hat.reshape(x1.shape)
     plt.figure(figsize=(9, 7), facecolor='w')
