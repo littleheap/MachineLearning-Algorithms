@@ -24,7 +24,7 @@ if __name__ == "__main__":
     # L2正则，岭回归：正则项是系数平方和
     model = Ridge()
 
-    # 0.001 ~ 100
+    # 0.001 ~ 100 取10个数成等比数列
     alpha_can = np.logspace(-3, 2, 10)
     # 5折交叉验证，cv是cross verify交叉验证，给定alpha超参数
     lasso_model = GridSearchCV(model, param_grid={'alpha': alpha_can}, cv=5)
