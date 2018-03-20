@@ -7,3 +7,5 @@
 |3.2 LinnerRegression_CV    |<img width="300" height="200" src="./Figures/3-2.png"/>|
 |3.3 Iris_LR    |<img width="300" height="200" src="./Figures/3-3.png"/>|
 |3.4 Overfit    |<img width="300" height="500" src="./Figures/3-4.png"/>|
+|4.决策树和随机森林   |4.1 Iris_DecisionTree 	4.2 Iris_DecisionTree_Enum  4.3 DecisionTreeRegressor <br> 	4.4 MultiOutput_DTR  4.5 Iris_RandomForest_Enum|
+|4.1 Iris_DecisionTree   |<img width="300" height="200" src="./Figures/4-1-1.png"/>|
