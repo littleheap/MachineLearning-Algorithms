@@ -13,6 +13,6 @@
 |4.3 DecisionTreeRegressor    |<img width="300" height="200" src="./Figures/4-3-1.png"/><img width="300" height="200" src="./Figures/4-3-2.png"/>|
 |4.4 MultiOutput_DTR    |<img width="300" height="200" src="./Figures/4-4.png"/>|
 |4.5 Iris_RandomForest_Enum   |<img width="400" height="300" src="./Figures/4-5.png"/>|
-
-
+|5.Boost提升   |5.1 xgBoost_Intro 	5.2 xgBoost_Predict  5.3 xgBoost_Wine 	5.4 xgBoost_ReadData <br> 5.5 Titanic.py  5.6 Bagging_intro.py|
+|5.6 Bagging_intro.py   |<img width="400" height="300" src="./Figures/5-6.png"/>|
 
