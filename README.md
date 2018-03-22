@@ -15,4 +15,15 @@
 |4.5 Iris_RandomForest_Enum   |<img width="400" height="300" src="./Figures/4-5.png"/>|
 |5.Boost提升   |5.1 xgBoost_Intro 	5.2 xgBoost_Predict  5.3 xgBoost_Wine 	5.4 xgBoost_ReadData <br> 5.5 Titanic.py  5.6 Bagging_intro.py|
 |5.6 Bagging_intro.py   |<img width="400" height="300" src="./Figures/5-6.png"/>|
+|6 SVM   |6.1 SVM_intro  6.2 SVM_draw  6.3 ClassifierIndex   	6.4 unBalance <br> 6.5 HandWrittenDigits  	6.6 SVR  6.7 CV|
+|6.1 SVM_intro   |<img width="400" height="300" src="./Figures/6-1.png"/>|
+|6.2 SVM_draw  |<img width="400" height="300" src="./Figures/6-2.png"/>|
+|6.4 unBalance  |<img width="400" height="300" src="./Figures/6-4.png"/>|
+|6.5 HandWrittenDigits  |<img width="300" height="200" src="./Figures/6-5-1.png"/> <img width="300" height="200" src="./Figures/6-5-2.png"/>|
+|6.6 SVR  |<img width="400" height="300" src="./Figures/6-6.png"/>|
+|6.7 CV  |<img width="400" height="300" src="./Figures/6-7.png"/>|
+
+
+
+
 
