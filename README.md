@@ -23,18 +23,18 @@
 |6.6 SVR  |<img width="400" height="300" src="./Figures/6-6.png"/>|
 |6.7 CV  |<img width="400" height="300" src="./Figures/6-7.png"/>|
 |7.聚类 |7.1 kMeans  7.2 criteria  7.3 VectorQuantization 7.4 AP <br> 7.5 MeanShift 7.6 DBSCAN 7.7 SC 7.8 SpectralClusterImage|
-|7.1 kMeans |<img width="400" height="300" src="./Figures/7-1.png"/>|
-| 7.3 VectorQuantization |<img width="400" height="300" src="./Figures/7-3-1.png"/> <img width="400" height="300" src="./Figures/7-3-2.png"/>|
-|7.4 AP  |<img width="400" height="300" src="./Figures/7-4.png"/>|
-|7.5 MeanShift|<img width="400" height="300" src="./Figures/7-5.png"/>|
+|7.1 kMeans |<img width="400" height="400" src="./Figures/7-1.png"/>|
+| 7.3 VectorQuantization |<img width="400" height="300" src="./Figures/7-3-1.png"/> <img width="400" height="200" src="./Figures/7-3-2.png"/>|
+|7.4 AP  |<img width="400" height="400" src="./Figures/7-4.png"/>|
+|7.5 MeanShift|<img width="400" height="400" src="./Figures/7-5.png"/>|
 |7.6 DBSCAN |<img width="400" height="300" src="./Figures/7-6.png"/>|
 |7.7 SC |<img width="400" height="300" src="./Figures/7-7.png"/>|
 |8.EM模型 |8.1 EM  8.2 GMM 	8.3 GMM_Parameter <br>8.4 GMM_Iris  8.5 DPGM 8.6 GMM_pdf|
-|8.1 EM |<img width="400" height="300" src="./Figures/8-1.png"/>|
+|8.1 EM |<img width="400" height="200" src="./Figures/8-1.png"/>|
 |8.2 GMM |<img width="400" height="300" src="./Figures/8-2.png"/>|
 |8.3 GMM_Parameter |<img width="400" height="300" src="./Figures/8-3-1.png"/><img width="400" height="300" src="./Figures/8-3-2.png"/>|
 |8.4 GMM_Iris|<img width="400" height="300" src="./Figures/8-4.png"/>|
-|8.5 DPGM  |<img width="400" height="300" src="./Figures/8-5.png"/>|
+|8.5 DPGM  |<img width="400" height="400" src="./Figures/8-5.png"/>|
 | 8.6 GMM_pdf |<img width="400" height="300" src="./Figures/8-6.png"/>|
 
 
