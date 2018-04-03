@@ -36,9 +36,10 @@
 |8.4 GMM_Iris|<img width="400" height="300" src="./Figures/8-4.png"/>|
 |8.5 DPGM  |<img width="400" height="400" src="./Figures/8-5.png"/>|
 | 8.6 GMM_pdf |<img width="400" height="300" src="./Figures/8-6.png"/>|
-|9.贝叶斯网络||
-
-
-
+|9.贝叶斯网络|9.1 Iris_GaussianNB 9.2 MultinomialNB_intro  9.3 text_classification|
+|9.1 Iris_GaussianNB |<img width="400" height="400" src="./Figures/9-1.png"/>|
+|9.3 text_classification  |<img width="400" height="400" src="./Figures/9-3.png"/>|
+|10.LDA主题模型| 	10.1 LDA_intro  10.2 netease_news  10.3 reuters|
+|10.3 reuters |<img width="400" height="400" src="./Figures/10-3-1.png"/> <img width="400" height="400" src="./Figures/10-3-2.png"/>|
 
 
