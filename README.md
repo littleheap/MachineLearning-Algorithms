@@ -41,5 +41,5 @@
 |9.3 text_classification  |<img width="400" height="300" src="./Figures/9-3.png"/>|
 |10.LDA主题模型| 	10.1 LDA_intro  10.2 netease_news  10.3 reuters|
 |10.3 reuters |<img width="400" height="400" src="./Figures/10-3-1.png"/> <img width="400" height="400" src="./Figures/10-3-2.png"/>|
-
-
+|11.HMM| 	11.1 TrainHMM  11.2 Segmentation  11.3 jieba_intro <br>  11.4 GMHMM  11.5 Stock|
+|11.5 Stock|<img width="400" height="400" src="./Figures/11-5.png"/>|
