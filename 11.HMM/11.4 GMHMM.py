@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -22,10 +21,12 @@ if __name__ == "__main__":
     n_samples = 1000
     pi = np.random.rand(n)
     pi /= pi.sum()
-    print('初始概率：', pi)
+    print('初始概率：', pi)  # 长度为5的初始概率
 
+    # 生成n*n的转换概率
     A = np.random.rand(n, n)
     mask = np.zeros((n, n), dtype=np.bool)
+    # 特殊位置清0
     mask[0][1] = mask[0][4] = True
     mask[1][0] = mask[1][2] = True
     mask[2][1] = mask[2][3] = True
@@ -36,15 +37,18 @@ if __name__ == "__main__":
         A[i] /= A[i].sum()
     print('转移概率：\n', A)
 
+    # 生成5个均值
     means = np.array(((30, 30), (0, 50), (-25, 30), (-15, 0), (15, 0)))
     print('均值：\n', means)
 
+    # 生成5个方差
     covars = np.empty((n, 2, 2))
     for i in range(n):
         # covars[i] = np.diag(np.random.randint(1, 5, size=2))
         covars[i] = np.diag(np.random.rand(2) + 0.001) * 10  # np.random.rand ∈[0,1)
     print('方差：\n', covars)
 
+    # 建立模型
     model = hmm.GaussianHMM(n_components=n, covariance_type='full')
     model.startprob_ = pi
     model.transmat_ = A
@@ -57,7 +61,7 @@ if __name__ == "__main__":
     model = model.fit(sample)
     y = model.predict(sample)
     np.set_printoptions(suppress=True)
-    print('##估计初始概率：', model.startprob_)
+    print('##估计初始概率：\n', model.startprob_)
     print('##估计转移概率：\n', model.transmat_)
     print('##估计均值：\n', model.means_)
     print('##估计方差：\n', model.covars_)

@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import math
@@ -126,8 +125,7 @@ def baum_welch(pi, A, B):
     gamma = [[0 for i in range(4)] for t in range(T)]
     ksi = [[[0 for j in range(4)] for i in range(4)] for t in range(T - 1)]
     for time in range(100):
-        print
-        "time:", time
+        print("time:", time)
         calc_alpha(pi, A, B, sentence, alpha)  # alpha(t,i):给定lamda，在时刻t的状态为i且观测到o(1),o(2)...o(t)的概率
         calc_beta(pi, A, B, sentence, beta)  # beta(t,i)：给定lamda和时刻t的状态i，观测到o(t+1),o(t+2)...oT的概率
         calc_gamma(alpha, beta, gamma)  # gamma(t,i)：给定lamda和O，在时刻t状态位于i的概率
@@ -200,6 +198,15 @@ def viterbi(pi, A, B, o):
     T = len(o)  # 观测序列
     delta = [[0 for i in range(4)] for t in range(T)]
     pre = [[0 for i in range(4)] for t in range(T)]  # 前一个状态   # pre[t][i]：t时刻的i状态，它的前一个状态是多少
+    # 数据转型
+    pi = list(pi)
+    A = list(A)
+    for i in range(4):
+        A[i] = list(A[i])
+    B = list(B)
+    for i in range(4):
+        B[i] = list(B[i])
+    delta = list(delta)
     for i in range(4):
         delta[0][i] = pi[i] + B[i][ord(o[0])]
     for t in range(1, T):
@@ -233,10 +240,10 @@ def segment(sentence, decode):
                 if decode[j] == 2:
                     break
                 j += 1
-            print(sentence[i:j + 1], "|", )
+            print(sentence[i:j + 1], "|", end='')
             i = j + 1
         elif decode[i] == 3 or decode[i] == 2:  # single
-            print(sentence[i:i + 1], "|", )
+            print(sentence[i:i + 1], "|", end='')
             i += 1
         else:
             print('Error:', i, decode[i])
@@ -245,8 +252,9 @@ def segment(sentence, decode):
 
 if __name__ == "__main__":
     pi, A, B = load_train()
-    f = open(".\\mybook.txt")
-    data = f.read()[3:].decode('utf-8')
+    # f = open(".\\novel.txt", encoding='utf-8')
+    f = open(".\\MyBook.txt", encoding='utf-8')
+    data = f.read()[3:]
     f.close()
     decode = viterbi(pi, A, B, data)
     segment(data, decode)

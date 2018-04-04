@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import numpy as np
@@ -18,12 +17,13 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore")  # hmmlearn(0.2.0) < sklearn(0.18)
 
     # 0日期  1开盘  2最高  3最低  4收盘  5成交量  6成交额
-    x = np.loadtxt('24.SH600000.txt', delimiter='\t', skiprows=2, usecols=(4, 5, 6, 2, 3))
+    x = np.loadtxt('SH600000.txt', delimiter='\t', skiprows=2, usecols=(4, 5, 6, 2, 3))
     close_price = x[:, 0]
     volumn = x[:, 1]
     amount = x[:, 2]
     amplitude_price = x[:, 3] - x[:, 4]  # 每天的最高价与最低价的差
     diff_price = np.diff(close_price)  # 涨跌值
+    # 后者-前者，扔掉第一列
     volumn = volumn[1:]  # 成交量
     amount = amount[1:]  # 成交额
     amplitude_price = amplitude_price[1:]  # 每日振幅

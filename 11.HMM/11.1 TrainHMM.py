@@ -1,4 +1,3 @@
-# !/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import math
@@ -15,8 +14,7 @@ def log_normalize(a):
     for x in a:
         s += x
     if s == 0:
-        print
-        "Error..from log_normalize."
+        print("Error..from log_normalize.")
         return
     s = math.log(s)
     for i in range(len(a)):
@@ -104,13 +102,13 @@ def bw(pi, A, B, alpha, beta, gamma, ksi, o):
     s1 = [0 for x in range(T)]
     s2 = [0 for x in range(T)]
     for i in range(4):
-        print
-        "bw", i
+        print("bw", i)
+
         for k in range(65536):
             valid = 0
             if k % 10000 == 0:
-                print
-                "bw - k", k
+                print("bw - k", k)
+
             for t in range(T):
                 if ord(o[t]) == k:
                     s1[valid] = gamma[t][i]
@@ -147,52 +145,59 @@ def baum_welch(pi, A, B):
         print("A", A)
 
 
-def mle():  # 0B/1M/2E/3S
+def mle():  # B(Begin) / M(Middle) / E(End) / S(Single)
     pi = [0] * 4  # npi[i]：i状态的个数
     a = [[0] * 4 for x in range(4)]  # na[i][j]：从i状态到j状态的转移个数
     b = [[0] * 65536 for x in range(4)]  # nb[i][o]：从i状态到o字符的个数
-    f = open(".\\pku_training.utf8")
-    data = f.read()[3:].decode('utf-8')
+    f = open(".\\pku_training.utf8", encoding='utf-8')
+    data = f.read()[3:]
     f.close()
+    # print(data)
+    # 获取每一个词
     tokens = data.split('  ')
+    # print(tokens)
     last_q = 2
     iii = 0
     old_progress = 0
     print('进度：')
     for k, token in enumerate(tokens):
+        # 打印进度
         progress = float(k) / float(len(tokens))
         if progress > old_progress + 0.1:
             print('%.3f' % progress)
             old_progress = progress
         token = token.strip()
+        # 获取当前词长度
         n = len(token)
         if n <= 0:
             continue
+        # 长度为1表示为Single，对应下标为3
         if n == 1:
-            pi[3] += 1
-            a[last_q][3] += 1  # 上一个词的结束(last_q)到当前状态(3S)
-            b[3][ord(token[0])] += 1
+            pi[3] += 1  # pi矩阵第三类+1
+            a[last_q][3] += 1  # A矩阵：上一个词的结束(last_q)到当前状态(Single)+1
+            b[3][ord(token[0])] += 1  # B矩阵：Single状态到token[0]的字+1
             last_q = 3
             continue
-        # 初始向量
-        pi[0] += 1
-        pi[2] += 1
-        pi[1] += (n - 2)
+        # 初始向量，长度不是1，一定多一组Begin和End
+        pi[0] += 1  # Begin+1
+        pi[2] += 1  # End+1
+        pi[1] += (n - 2)  # Middle+(n-2)
         # 转移矩阵
-        a[last_q][0] += 1
-        last_q = 2
+        a[last_q][0] += 1  # 上一个状态到Begin+1
+        last_q = 2  # 上一个状态设置为End
+        #  长度为2，则Begin直接到End
         if n == 2:
             a[0][2] += 1
-        else:
-            a[0][1] += 1
-            a[1][1] += (n - 3)
-            a[1][2] += 1
+        else:  # 如果长度大于2
+            a[0][1] += 1  # Begin到Middle+1
+            a[1][1] += (n - 3)  # Middle到Middle+(n-3)
+            a[1][2] += 1  # Middle到End+1
         # 发射矩阵
-        b[0][ord(token[0])] += 1
-        b[2][ord(token[n - 1])] += 1
-        for i in range(1, n - 1):
+        b[0][ord(token[0])] += 1  # 从Begin到开始词+1
+        b[2][ord(token[n - 1])] += 1  # 从End到最后一个词+1
+        for i in range(1, n - 1):  # 中间那些字Middle+1
             b[1][ord(token[i])] += 1
-    # 正则化
+    # 对数正则化
     log_normalize(pi)
     for i in range(4):
         log_normalize(a[i])
