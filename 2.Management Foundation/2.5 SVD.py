@@ -1,7 +1,6 @@
 #  -*- coding:utf-8 -*-
 
 import os
-
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -55,7 +54,7 @@ if __name__ == "__main__":
         G = restore1(sigma_g, u_g, v_g, k)
         B = restore1(sigma_b, u_b, v_b, k)
         I = np.stack((R, G, B), 2)
-        Image.fromarray(I).save('%s\\svd_%d.png' % (output_path, k))
+        # Image.fromarray(I).save('%s\\svd_%d.png' % (output_path, k))
         if k <= 12:
             plt.subplot(3, 4, k)
             plt.imshow(I)

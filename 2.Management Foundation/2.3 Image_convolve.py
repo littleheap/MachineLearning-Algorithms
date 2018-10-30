@@ -1,7 +1,7 @@
 import os
-
 import numpy as np
 from PIL import Image
+from matplotlib import pyplot as plt
 
 
 def convolve(image, weight):
@@ -20,9 +20,12 @@ def convolve(image, weight):
 
 # image_new = 255 * (image_new - image_new.min()) / (image_new.max() - image_new.min())
 
+fig, axes = plt.subplots(2, 4, sharex=True, sharey=True, subplot_kw={'adjustable': 'box-forced'})
+axes = axes.ravel()
+
 if __name__ == "__main__":
     A = Image.open("son.png", 'r')
-    output_path = '.\\Pic\\'
+    output_path = './figures/'
     if not os.path.exists(output_path):
         os.mkdir(output_path)
     a = np.array(A)
@@ -44,7 +47,12 @@ if __name__ == "__main__":
         print('B')
         B = convolve(a[:, :, 2], eval(weight))
         I = 255 - np.stack((R, G, B), 2)
-        Image.fromarray(I).save(output_path + weight + '.png')
+        image = Image.fromarray(I)
+        # Image.fromarray(I).save(output_path + weight + '.png')
+        ax = axes[0]
+        ax.set_title(weight)
+        axes = axes[1:]
+        ax.imshow(image, interpolation='nearest')
 
         # X & Y
         # print('梯度检测XY：')
@@ -69,3 +77,5 @@ if __name__ == "__main__":
         #
         #     I = 255 - np.maximum(I1, I2)
         #     Image.fromarray(I).save(output_path + weight[:-2] + '.png')
+
+    plt.show()

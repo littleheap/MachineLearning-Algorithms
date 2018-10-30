@@ -43,5 +43,3 @@ if __name__ == "__main__":
     plt.legend(loc='upper right')
     plt.grid(True)
     plt.show()
-
-
