@@ -21,13 +21,13 @@
 <img width="600" height="400" src="./figures/ema.png"/>
 
 #### ·不同算子边界勾勒效果
-<img width="600" height="400" src="./figures/convolve.png"/>
+<img width="600" height="440" src="./figures/convolve.png"/>
 
 #### ·时域信号&频域信号
-<img width="600" height="400" src="./figures/FFT(1).png"/>
+<img width="500" height="400" src="./figures/FFT(1).png"/>
 
 #### ·傅里叶变化滤波操作
-<img width="600" height="400" src="./figures/FFT(2).png"/>
+<img width="500" height="500" src="./figures/FFT(2).png"/>
 
 #### ·SVD奇异值分解图像压缩
-<img width="600" height="400" src="./figures/SVD.png"/>
+<img width="600" height="550" src="./figures/SVD.png"/>
