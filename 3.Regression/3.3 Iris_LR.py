@@ -1,19 +1,16 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.linear_model import LogisticRegression
-import matplotlib.pyplot as plt
 import matplotlib as mpl
-from sklearn import preprocessing
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
 '''
     LR：就是Logistic回归而不是Linner回归
     莺尾花四个特征：
     花萼长度 || 花萼宽度 || 花瓣长度 || 花瓣宽度 + 类别（3种各50条数据）
 '''
+
 
 def iris_type(s):
     it = {b'Iris-setosa': 0,
@@ -23,7 +20,6 @@ def iris_type(s):
 
 
 if __name__ == "__main__":
-
     path = u'iris.data'  # 数据文件路径
 
     '''
