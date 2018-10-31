@@ -17,16 +17,16 @@
 <img width="600" height="400" src="./figures/adv.png"/>
 
 #### ·广告数据分布各自离散图
-<img width="600" height="400" src="./figures/adv_self.png"/>
+<img width="500" height="700" src="./figures/adv_self.png"/>
 
 #### ·广告数据线性回归预测拟合
-<img width="600" height="440" src="./figures/adv_pred.png"/>
+<img width="550" height="400" src="./figures/adv_pred.png"/>
 
 #### ·引入交叉验证的广告数据线性回归预测拟合
-<img width="500" height="400" src="./figures/adv_pred_cv.png"/>
+<img width="550" height="400" src="./figures/adv_pred_cv.png"/>
 
 #### ·Iris莺尾花数据集应用线性回归分类
-<img width="500" height="500" src="./figures/iris_LR.png"/>
+<img width="500" height="400" src="./figures/iris_LR.png"/>
 
 #### ·Overfit过拟合及荣格现象展示
-<img width="600" height="550" src="./figures/overfit.png"/>
+<img width="480" height="750" src="./figures/overfit.png"/>
