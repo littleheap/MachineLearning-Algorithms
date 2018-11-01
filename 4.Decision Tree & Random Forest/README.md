@@ -15,13 +15,13 @@
 
 ### 效果图
 #### ·决策树分类莺尾花数据效果
-<img width="600" height="400" src="./figures/DT.png"/>
+<img width="550" height="400" src="./figures/DT.png"/>
 
 #### ·决策树深度对模型精度影响
-<img width="480" height="750" src="./figures/depth.png"/>
+<img width="480" height="350" src="./figures/depth.png"/>
 
 #### ·决策树模型特征选择比较
-<img width="500" height="700" src="./figures/DT_pair.png"/>
+<img width="500" height="470" src="./figures/DT_pair.png"/>
 
 #### ·树回归
 <img width="550" height="400" src="./figures/DT_reg.png"/>
@@ -30,7 +30,7 @@
 <img width="550" height="400" src="./figures/DT_reg_depth.png"/>
 
 #### ·DTR
-<img width="500" height="400" src="./figures/DTR.png"/>
+<img width="500" height="350" src="./figures/DTR.png"/>
 
 #### ·随机森林模型特征选择效果比较
-<img width="480" height="750" src="./figures/RF_pair.png"/>
+<img width="500" height="470" src="./figures/RF_pair.png"/>
