@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -20,7 +18,7 @@ if __name__ == "__main__":
     mpl.rcParams['font.sans-serif'] = [u'SimHei']  # 黑体 FangSong/KaiTi
     mpl.rcParams['axes.unicode_minus'] = False
 
-    path = '..\\3.回归\\iris.data'  # 数据文件路径
+    path = '.\\iris.data'  # 数据文件路径
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     x_prime, y = np.split(data, (4,), axis=1)
 
