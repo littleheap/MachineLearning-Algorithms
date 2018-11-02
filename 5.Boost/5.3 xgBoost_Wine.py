@@ -4,7 +4,6 @@ import xgboost as xgb
 import numpy as np
 from sklearn.model_selection import train_test_split  # cross_validation
 from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
 
 '''
     数据集：分类三种酒，对应的13个特征，第1列为标记数据，后面13列为13种特征
@@ -43,3 +42,4 @@ if __name__ == "__main__":
     bst = xgb.train(param, data_train, num_boost_round=4, evals=watch_list)
     y_hat = bst.predict(data_test)
     show_accuracy(y_hat, y_test, 'XGBoost ')
+    # XGBoost 正确率：	 0.9887640449438202

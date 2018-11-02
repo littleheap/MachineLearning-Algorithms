@@ -1,7 +1,5 @@
-# -*- encoding:utf-8 -*-
-
-import xgboost as xgb
 import numpy as np
+import xgboost as xgb
 from sklearn.model_selection import train_test_split  # cross_validation
 
 
@@ -13,7 +11,7 @@ def iris_type(s):
 
 
 if __name__ == "__main__":
-    path = u'..\\3.回归\\iris.data'  # 数据文件路径
+    path = u'.\\iris.data'  # 数据文件路径
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     x, y = np.split(data, (4,), axis=1)
     # 测试数据设置50，训练数据则为100
@@ -35,3 +33,4 @@ if __name__ == "__main__":
     # 计算结果
     result = y_test.reshape(1, -1) == y_hat
     print('正确率:\t', float(np.sum(result)) / len(y_hat))
+    # 正确率:	 0.96

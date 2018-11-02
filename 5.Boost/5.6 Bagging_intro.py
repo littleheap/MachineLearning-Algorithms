@@ -1,16 +1,11 @@
-# -*- encoding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib as mpl
-from sklearn.linear_model import RidgeCV, LassoCV
-from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import RidgeCV
 from sklearn.ensemble import BaggingRegressor
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures
-import pandas as pd
-import csv
 
 
 def f(x):

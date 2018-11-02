@@ -1,13 +1,11 @@
-# -*- encoding:utf-8 -*-
-
-import xgboost as xgb
+import csv
 import numpy as np
+import pandas as pd
+import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import RandomForestClassifier
-import pandas as pd
-import csv
 
 
 def show_accuracy(a, b, tip):
@@ -130,7 +128,7 @@ if __name__ == "__main__":
     lr_rate = show_accuracy(y_hat, y_test, 'Logistic回归 ')
     # write_result(lr, 1)
 
-    rfc = RandomForestClassifier(n_estimators=100)  #100棵树
+    rfc = RandomForestClassifier(n_estimators=100)  # 100棵树
     rfc.fit(x_train, y_train)
     y_hat = rfc.predict(x_test)
     rfc_rate = show_accuracy(y_hat, y_test, '随机森林 ')
@@ -149,6 +147,6 @@ if __name__ == "__main__":
     y_hat[~(y_hat > 0.5)] = 0
     xgb_rate = show_accuracy(y_hat, y_test, 'XGBoost ')
 
-    print('Logistic回归：%.3f%%' % lr_rate)
-    print('随机森林：%.3f%%' % rfc_rate)
-    print('XGBoost：%.3f%%' % xgb_rate)
+    print('Logistic回归：%.3f%%' % lr_rate)  # Logistic回归：78.680%
+    print('随机森林：%.3f%%' % rfc_rate)  # 随机森林：97.935%
+    print('XGBoost：%.3f%%' % xgb_rate)  # XGBoost：86.176%

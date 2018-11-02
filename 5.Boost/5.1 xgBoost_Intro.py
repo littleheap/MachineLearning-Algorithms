@@ -1,7 +1,5 @@
-# -*- encoding:utf-8 -*-
-
-import xgboost as xgb
 import numpy as np
+import xgboost as xgb
 
 '''
     数据内容：蘑菇125特征对应是否有毒，测试集训练集简化存储模式，只将125特征列中，存在为是的特征标为1并集合。
@@ -45,10 +43,10 @@ if __name__ == "__main__":
     # 计算错误率
     y_hat = bst.predict(data_test)
     y = data_test.get_label()
-    print(y_hat)
-    print(y)
+    print(y_hat)  # [0.15353635 0.84625006 0.15353635 ... 0.95912963 0.02411181 0.95912963]
+    print(y)  # [0. 1. 0. ... 1. 0. 1.]
     error = sum(y != (y_hat > 0.5))
     error_rate = float(error) / len(y_hat)
-    print('样本总数：\t', len(y_hat))
-    print('错误数目：\t%4d' % error)
-    print('错误率：\t%.5f%%' % (100 * error_rate))
+    print('样本总数：\t', len(y_hat))  # 样本总数：	 1611
+    print('错误数目：\t%4d' % error)  # 错误数目：	  10
+    print('错误率：\t%.5f%%' % (100 * error_rate))  # 错误率：	0.62073%

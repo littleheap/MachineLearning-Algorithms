@@ -1,8 +1,6 @@
-# -*- coding:utf-8 -*-
-
-import xgboost as xgb
 import numpy as np
 import scipy.sparse
+import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
@@ -56,3 +54,4 @@ if __name__ == '__main__':
     bst = xgb.train(param, data_train, num_boost_round=4, evals=watch_list)
     y_hat = bst.predict(data_test)
     show_accuracy(y_hat, y_test, 'XGBoost ')
+    # XGBoost 正确率：	 0.9992325402916347
