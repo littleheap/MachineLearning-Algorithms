@@ -1,45 +1,13 @@
-# MachineLearning_Algorithms
+## MachineLearning-Algorithms (机器学习算法项目整合)
 
-| 内容      | 图片  |
-|:-------------:|:-------------:|
-|3.回归         |3.1 Advertising     3.2 LinnerRegression_CV     3.3 Iris_LR     3.4 Overfit|
-|3.1 Advertising    |<img width="300" height="200" src="./Figures/3-1-1.png"/><img width="300" height="200" src="./Figures/3-1-3.png"/><br><img width="300" height="400" src="./Figures/3-1-2.png"/>|
-|3.2 LinnerRegression_CV    |<img width="300" height="200" src="./Figures/3-2.png"/>|
-|3.3 Iris_LR    |<img width="300" height="200" src="./Figures/3-3.png"/>|
-|3.4 Overfit    |<img width="300" height="500" src="./Figures/3-4.png"/>|
-|4.决策树和随机森林   |4.1 Iris_DecisionTree 	4.2 Iris_DecisionTree_Enum  4.3 DecisionTreeRegressor <br> 	4.4 MultiOutput_DTR  4.5 Iris_RandomForest_Enum|
-|4.1 Iris_DecisionTree   |<img width="300" height="200" src="./Figures/4-1-1.png"/><img width="300" height="200" src="./Figures/4-1-2.png"/>|
-|4.2 Iris_DecisionTree_Enum    |<img width="400" height="300" src="./Figures/4-2.png"/>|
-|4.3 DecisionTreeRegressor    |<img width="300" height="200" src="./Figures/4-3-1.png"/><img width="300" height="200" src="./Figures/4-3-2.png"/>|
-|4.4 MultiOutput_DTR    |<img width="300" height="200" src="./Figures/4-4.png"/>|
-|4.5 Iris_RandomForest_Enum   |<img width="400" height="300" src="./Figures/4-5.png"/>|
-|5.Boost提升   |5.1 xgBoost_Intro 	5.2 xgBoost_Predict  5.3 xgBoost_Wine 	5.4 xgBoost_ReadData <br> 5.5 Titanic.py  5.6 Bagging_intro.py|
-|5.6 Bagging_intro.py   |<img width="400" height="300" src="./Figures/5-6.png"/>|
-|6 SVM   |6.1 SVM_intro  6.2 SVM_draw  6.3 ClassifierIndex   	6.4 unBalance <br> 6.5 HandWrittenDigits  	6.6 SVR  6.7 CV|
-|6.1 SVM_intro   |<img width="400" height="300" src="./Figures/6-1.png"/>|
-|6.2 SVM_draw  |<img width="400" height="300" src="./Figures/6-2.png"/>|
-|6.4 unBalance  |<img width="400" height="300" src="./Figures/6-4.png"/>|
-|6.5 HandWrittenDigits  |<img width="300" height="200" src="./Figures/6-5-1.png"/> <img width="300" height="200" src="./Figures/6-5-2.png"/>|
-|6.6 SVR  |<img width="400" height="300" src="./Figures/6-6.png"/>|
-|6.7 CV  |<img width="400" height="300" src="./Figures/6-7.png"/>|
-|7.聚类 |7.1 kMeans  7.2 criteria  7.3 VectorQuantization 7.4 AP <br> 7.5 MeanShift 7.6 DBSCAN 7.7 SC 7.8 SpectralClusterImage|
-|7.1 kMeans |<img width="400" height="400" src="./Figures/7-1.png"/>|
-| 7.3 VectorQuantization |<img width="400" height="300" src="./Figures/7-3-1.png"/> <img width="400" height="200" src="./Figures/7-3-2.png"/>|
-|7.4 AP  |<img width="400" height="400" src="./Figures/7-4.png"/>|
-|7.5 MeanShift|<img width="400" height="400" src="./Figures/7-5.png"/>|
-|7.6 DBSCAN |<img width="400" height="300" src="./Figures/7-6.png"/>|
-|7.7 SC |<img width="400" height="300" src="./Figures/7-7.png"/>|
-|8.EM模型 |8.1 EM  8.2 GMM 	8.3 GMM_Parameter <br>8.4 GMM_Iris  8.5 DPGM 8.6 GMM_pdf|
-|8.1 EM |<img width="400" height="200" src="./Figures/8-1.png"/>|
-|8.2 GMM |<img width="400" height="300" src="./Figures/8-2.png"/>|
-|8.3 GMM_Parameter |<img width="400" height="300" src="./Figures/8-3-1.png"/><img width="400" height="300" src="./Figures/8-3-2.png"/>|
-|8.4 GMM_Iris|<img width="400" height="300" src="./Figures/8-4.png"/>|
-|8.5 DPGM  |<img width="400" height="400" src="./Figures/8-5.png"/>|
-| 8.6 GMM_pdf |<img width="400" height="300" src="./Figures/8-6.png"/>|
-|9.贝叶斯网络|9.1 Iris_GaussianNB 9.2 MultinomialNB_intro  9.3 text_classification|
-|9.1 Iris_GaussianNB |<img width="400" height="300" src="./Figures/9-1.png"/>|
-|9.3 text_classification  |<img width="400" height="300" src="./Figures/9-3.png"/>|
-|10.LDA主题模型| 	10.1 LDA_intro  10.2 netease_news  10.3 reuters|
-|10.3 reuters |<img width="400" height="400" src="./Figures/10-3-1.png"/> <img width="400" height="400" src="./Figures/10-3-2.png"/>|
-|11.HMM| 	11.1 TrainHMM  11.2 Segmentation  11.3 jieba_intro <br>  11.4 GMHMM  11.5 Stock|
-|11.5 Stock|<img width="400" height="400" src="./Figures/11-5.png"/>|
+### 项目背景
+>该项目是我个人在学习ML基础过程中，操纵实践基础算法的整理合集，每一个小项目中，都有最新的，基于Python3.6实践相应算法到数据上的代码。理论内容几乎协同《统计学习方法》，算法实战同时有着几乎最详尽的注释。所有都是在我学习每个算法基础理论推导后，调用第三方库函数和相关算法框架，实现相关基于机器学习的算法实战内容，查看实现效果。具体每个小项目中有Readme说明。欢迎了解和完善。
+
+### 项目简介
+|名称|简介|
+|:-------------|:-------------:|
+|[1.Python Foundation](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/1.Python%20Foundation)|Python基础要点回顾|
+|[2.Management Foundation](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/2.Management%20Foundation)|机器学习基础操作要点|
+|[3.Regression](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/3.Regression)|回归算法实战|
+|[4.Decision Tree & Random Forest](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/4.Decision%20Tree%20%26%20Random%20Forest)|决策树&随机森林算法实战|
+|[5.Boost](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/5.Boost)|Boost算法实战|
