@@ -1,11 +1,9 @@
-# -*- coding:utf-8 -*-
-
+import warnings
 import numpy as np
-from sklearn import svm
 import matplotlib.colors
 import matplotlib.pyplot as plt
+from sklearn import svm
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, fbeta_score
-import warnings
 
 
 def show_accuracy(a, b):

@@ -1,10 +1,8 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn import svm
-from sklearn.model_selection import train_test_split
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from sklearn import svm
+from sklearn.model_selection import train_test_split
 
 
 def iris_type(s):
@@ -24,7 +22,7 @@ def show_accuracy(a, b, tip):
 
 
 if __name__ == "__main__":
-    path = '..\\3.回归\\iris.data'  # 数据文件路径
+    path = '.\\iris.data'  # 数据文件路径
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     x, y = np.split(data, (4,), axis=1)
     x = x[:, :2]  # 取前2个特征

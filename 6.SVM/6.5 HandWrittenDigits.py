@@ -1,12 +1,9 @@
-#!/usr/bin/python
-# -*- coding:utf-8 -*-
-
+import os
 import numpy as np
-from sklearn import svm
 import matplotlib.colors
 import matplotlib.pyplot as plt
 from PIL import Image
-import os
+from sklearn import svm
 
 
 def show_accuracy(a, b, tip):

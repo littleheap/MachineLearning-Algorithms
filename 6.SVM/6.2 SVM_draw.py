@@ -1,11 +1,7 @@
-#!/usr/bin/python
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn import svm
-import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
+from sklearn import svm
 
 
 def show_accuracy(a, b):

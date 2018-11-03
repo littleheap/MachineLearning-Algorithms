@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score, recall_score, f1_score, fbeta_score
@@ -58,3 +56,19 @@ if __name__ == "__main__":
         # print((1+beta**2)*precision*recall / (beta**2 * precision + recall))
 
     print(precision_recall_fscore_support(y_true, y_hat, beta=1))
+
+'''
+    Accuracy：	 0.5
+    Precision:	 0.6
+    Recall:  	 0.75
+    f1 score: 	 0.6666666666666665
+    F-beta：
+        beta=    0.001	F-beta=0.60000
+        beta=    0.010	F-beta=0.60001
+        beta=    0.100	F-beta=0.60119
+        beta=    1.000	F-beta=0.66667
+        beta=   10.000	F-beta=0.74815
+        beta=  100.000	F-beta=0.74998
+        beta= 1000.000	F-beta=0.75000
+    (array([0. , 0.6]), array([0.  , 0.75]), array([0.        , 0.66666667]), array([2, 4], dtype=int64))
+'''
