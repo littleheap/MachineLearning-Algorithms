@@ -24,29 +24,29 @@
 
 ### 效果图
 #### ·基本聚类算法实现效果
-<img width="550" height="440" src="./figures/cluster.png"/>
+<img width="550" height="640" src="./figures/cluster.png"/>
 
 #### ·矢量量化聚类压缩图像
-<img width="550" height="440" src="./figures/target.png"/>
+<img width="550" height="270" src="./figures/target.png"/>
 
 #### ·矢量量化二维分布
-<img width="640" height="400" src="./figures/2D.png"/>
+<img width="440" height="300" src="./figures/2D.png"/>
 
 #### ·矢量量化三维分布
 <img width="500" height="400" src="./figures/3D.png"/>
 
 #### ·AP聚类
-<img width="490" height="400" src="./figures/AP.png"/>
+<img width="690" height="520" src="./figures/AP.png"/>
 
 #### ·MeanShift聚类
 <img width="490" height="400" src="./figures/mean.png"/>
 
 #### ·DBSCAN聚类
-<img width="490" height="400" src="./figures/DBSCAN.png"/>
+<img width="490" height="300" src="./figures/DBSCAN.png"/>
 
 #### ·谱聚类
-<img width="490" height="400" src="./figures/SC.png"/>
+<img width="490" height="300" src="./figures/SC.png"/>
 
 #### ·谱聚类应用效果
-<img width="490" height="400" src="./figures/spectral.png"/>
+<img width="490" height="250" src="./figures/spectral.png"/>
 
