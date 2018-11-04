@@ -1,9 +1,6 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
-import sklearn.datasets as ds
 import matplotlib.colors
+import matplotlib.pyplot as plt
 from sklearn.cluster import spectral_clustering
 from sklearn.metrics import euclidean_distances
 

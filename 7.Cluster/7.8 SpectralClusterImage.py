@@ -1,12 +1,9 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.colors
-from sklearn.cluster import spectral_clustering
-from sklearn.feature_extraction import image
+import matplotlib.pyplot as plt
 from PIL import Image
-import time
+from sklearn.feature_extraction import image
+from sklearn.cluster import spectral_clustering
 
 if __name__ == "__main__":
     matplotlib.rcParams['font.sans-serif'] = [u'SimHei']

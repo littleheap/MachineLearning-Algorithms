@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
-from PIL import Image
-import numpy as np
-from sklearn.cluster import KMeans
 import matplotlib
+import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
+from sklearn.cluster import KMeans
 from mpl_toolkits.mplot3d import Axes3D
 
 

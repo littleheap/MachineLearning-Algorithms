@@ -1,9 +1,7 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
-import sklearn.datasets as ds
 import matplotlib.colors
+import sklearn.datasets as ds
+import matplotlib.pyplot as plt
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
 
