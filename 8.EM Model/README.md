@@ -16,24 +16,24 @@
 
 ### 效果图
 #### ·EM算法基本应用
-<img width="550" height="640" src="./figures/EM.png"/>
+<img width="550" height="270" src="./figures/EM.png"/>
 
 #### ·EM算法估算高斯混合模型参数
-<img width="550" height="270" src="./figures/GMM.png"/>
+<img width="550" height="400" src="./figures/GMM.png"/>
 
 #### ·比较不同方差类型错误率
 <img width="440" height="300" src="./figures/EM_para.png"/>
 
 #### ·GMM调参
-<img width="500" height="400" src="./figures/EM_par_modi.png"/>
+<img width="500" height="400" src="./figures/EM_para_modi.png"/>
 
 #### ·EM算法应用到Iris莺尾花数据
-<img width="690" height="520" src="./figures/iris.png"/>
+<img width="490" height="460" src="./figures/iris.png"/>
 
 #### ·DPGMM与GMM模型比较
-<img width="490" height="400" src="./figures/DPGMM.png"/>
+<img width="430" height="400" src="./figures/DPGMM.png"/>
 
 #### ·GMM似然函数值
-<img width="490" height="300" src="./figures/GMM_sim.png"/>
+<img width="430" height="300" src="./figures/GMM_sim.png"/>
 
 
