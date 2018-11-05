@@ -11,3 +11,6 @@
 |[3.Regression](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/3.Regression)|回归算法实战|
 |[4.Decision Tree & Random Forest](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/4.Decision%20Tree%20%26%20Random%20Forest)|决策树&随机森林算法实战|
 |[5.Boost](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/5.Boost)|Boost算法实战|
+|[6.SVM](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/6.SVM)|SVM支撑向量机实战|
+|[7.Cluster](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/7.Cluster)|聚类算法实战|
+|[7.EM Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/8.EM%20Model)|EM算法实战|
