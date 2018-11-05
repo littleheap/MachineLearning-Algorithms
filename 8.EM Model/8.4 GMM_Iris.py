@@ -1,10 +1,8 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.mixture import GaussianMixture
 import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
+from sklearn.mixture import GaussianMixture
 from sklearn.metrics.pairwise import pairwise_distances_argmin
 
 mpl.rcParams['font.sans-serif'] = [u'SimHei']
@@ -26,7 +24,7 @@ def iris_type(s):
 
 
 if __name__ == '__main__':
-    path = '..\\3.回归\\iris.data'  # 数据文件路径
+    path = '.\\iris.data'  # 数据文件路径
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     # 将数据的0到3列组成x，第4列得到y
     x_prime, y = np.split(data, (4,), axis=1)

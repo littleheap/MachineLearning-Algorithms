@@ -1,13 +1,11 @@
-# -*- coding:utf-8 -*-
-
+import warnings
 import numpy as np
-from sklearn.mixture import GaussianMixture
 import scipy as sp
 import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
-import warnings
+from sklearn.mixture import GaussianMixture
 
 
 # 扩容画图尺寸函数

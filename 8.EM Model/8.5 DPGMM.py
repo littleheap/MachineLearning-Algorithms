@@ -1,12 +1,10 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.mixture import GaussianMixture, BayesianGaussianMixture
 import scipy as sp
 import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
+from sklearn.mixture import GaussianMixture, BayesianGaussianMixture
 
 
 def expand(a, b, rate=0.05):

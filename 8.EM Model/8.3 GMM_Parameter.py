@@ -1,10 +1,8 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.mixture import GaussianMixture
 import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
+from sklearn.mixture import GaussianMixture
 
 mpl.rcParams['font.sans-serif'] = [u'SimHei']
 mpl.rcParams['axes.unicode_minus'] = False

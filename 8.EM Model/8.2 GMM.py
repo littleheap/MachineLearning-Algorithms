@@ -1,11 +1,9 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.mixture import GaussianMixture
-from sklearn.model_selection import train_test_split
 import matplotlib as mpl
 import matplotlib.colors
 import matplotlib.pyplot as plt
+from sklearn.mixture import GaussianMixture
+from sklearn.model_selection import train_test_split
 
 mpl.rcParams['font.sans-serif'] = [u'SimHei']
 mpl.rcParams['axes.unicode_minus'] = False
@@ -66,7 +64,8 @@ if __name__ == '__main__':
     # 绘制两个颜色色块
     plt.pcolormesh(x1, x2, grid_hat, cmap=cm_light)
     plt.scatter(x[:, 0], x[:, 1], s=50, c=y.reshape(x[:, 0].shape), marker='o', cmap=cm_dark, edgecolors='k')
-    plt.scatter(x_test[:, 0], x_test[:, 1], s=60, c=y_test.reshape(x_test[:, 0].shape), marker='^', cmap=cm_dark, edgecolors='k')
+    plt.scatter(x_test[:, 0], x_test[:, 1], s=60, c=y_test.reshape(x_test[:, 0].shape), marker='^', cmap=cm_dark,
+                edgecolors='k')
 
     p = gmm.predict_proba(grid_test)
     p = p[:, 0].reshape(x1.shape)

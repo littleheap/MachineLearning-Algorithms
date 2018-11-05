@@ -1,11 +1,9 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from scipy.stats import multivariate_normal
-from sklearn.mixture import GaussianMixture
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from scipy.stats import multivariate_normal
+from sklearn.mixture import GaussianMixture
 from sklearn.metrics.pairwise import pairwise_distances_argmin
 
 mpl.rcParams['font.sans-serif'] = [u'SimHei']
