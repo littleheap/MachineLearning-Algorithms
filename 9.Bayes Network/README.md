@@ -15,7 +15,7 @@
 
 ### 效果图
 #### ·高斯朴素贝叶斯模型预测Iris莺尾花数据集效果
-<img width="550" height="270" src="./figures/iris.png"/>
+<img width="550" height="370" src="./figures/iris.png"/>
 
 #### ·不同模型进行文本分类效果比对
 <img width="550" height="400" src="./figures/text.png"/>
