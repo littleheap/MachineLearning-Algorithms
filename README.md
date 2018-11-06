@@ -13,4 +13,5 @@
 |[5.Boost](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/5.Boost)|Boost算法实战|
 |[6.SVM](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/6.SVM)|SVM支撑向量机实战|
 |[7.Cluster](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/7.Cluster)|聚类算法实战|
-|[7.EM Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/8.EM%20Model)|EM算法实战|
+|[8.EM Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/8.EM%20Model)|EM算法实战|
+|[9.Bayes Network](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/9.Bayes%20Network)|贝叶斯网络实战|

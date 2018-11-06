@@ -1,19 +1,17 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-from sklearn.naive_bayes import MultinomialNB, BernoulliNB
-from sklearn.datasets import fetch_20newsgroups
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import RidgeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import GridSearchCV
-from sklearn import metrics
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 from time import time
 from pprint import pprint
-import matplotlib.pyplot as plt
-import matplotlib as mpl
+from sklearn.svm import SVC
+from sklearn import metrics
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.linear_model import RidgeClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB, BernoulliNB
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def test_clf(clf):
@@ -101,7 +99,7 @@ if __name__ == "__main__":
         print(data_train.data[i])  # 训练数据文本本身
         print('\n\n')
 
-    # Tfidf用来提取文本特征
+    # TF-IDF用来提取文本特征
     vectorizer = TfidfVectorizer(input='content', stop_words='english', max_df=0.5, sublinear_tf=True)
     # 训练数据提取特征
     x_train = vectorizer.fit_transform(data_train.data)  # x_train是稀疏的

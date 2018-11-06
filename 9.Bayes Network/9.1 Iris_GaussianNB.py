@@ -1,16 +1,15 @@
-# -*- coding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib as mpl
-from sklearn.preprocessing import StandardScaler
-from sklearn.naive_bayes import GaussianNB, MultinomialNB
+import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
 
 '''
     高斯朴素贝叶斯
 '''
+
 
 def iris_type(s):
     it = {b'Iris-setosa': 0,
@@ -20,7 +19,7 @@ def iris_type(s):
 
 
 if __name__ == "__main__":
-    data = np.loadtxt('..\\3.回归\\iris.data', dtype=float, delimiter=',', converters={4: iris_type})
+    data = np.loadtxt('.\\iris.data', dtype=float, delimiter=',', converters={4: iris_type})
     print(data)
     x, y = np.split(data, (4,), axis=1)
     # 只取前两个特征，假定任意类别都是服从高斯分布，并且特征之间是独立的
