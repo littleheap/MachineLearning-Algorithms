@@ -1,7 +1,5 @@
-# -*- coding:utf-8 -*-
-
-from gensim import corpora, models, similarities
 from pprint import pprint
+from gensim import corpora, models, similarities
 
 # 配置输出结果
 # import logging

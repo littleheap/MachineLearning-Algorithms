@@ -1,11 +1,7 @@
-# !/usr/bin/python
-# -*- coding:utf-8 -*-
-
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import lda
 import lda.datasets
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 from pprint import pprint
 
 if __name__ == "__main__":

@@ -1,9 +1,6 @@
-# -*- coding:utf-8 -*-
-
-import numpy as np
-from gensim import corpora, models, similarities
-from pprint import pprint
 import time
+import numpy as np
+from gensim import corpora, models
 
 
 # import logging
