@@ -15,3 +15,4 @@
 |[7.Cluster](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/7.Cluster)|聚类算法实战|
 |[8.EM Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/8.EM%20Model)|EM算法实战|
 |[9.Bayes Network](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/9.Bayes%20Network)|贝叶斯网络实战|
+|[10.LDA Topic Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/10.LDA%20Topic%20Model)|LDA主题模型实战|
