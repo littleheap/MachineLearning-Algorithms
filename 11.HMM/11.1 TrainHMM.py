@@ -1,10 +1,4 @@
-# -*- coding:utf-8 -*-
-
 import math
-import matplotlib.pyplot as plt
-import numpy as np
-import codecs
-import random
 
 infinite = float(-2 ** 31)
 

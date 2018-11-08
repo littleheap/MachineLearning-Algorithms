@@ -1,8 +1,3 @@
-# -*- coding:utf-8 -*-
-
-import sys
-import imp
-import jieba
 import jieba.posseg
 
 if __name__ == "__main__":
