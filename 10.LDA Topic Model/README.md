@@ -15,10 +15,10 @@
 
 ### 效果图
 #### ·文档-主题分布统计
-<img width="550" height="370" src="./figures/doc-topic.png"/>
+<img width="550" height="600" src="./figures/doc-topic.png"/>
 
 #### ·主题-词分布统计
-<img width="550" height="400" src="./figures/topic-word.png"/>
+<img width="550" height="600" src="./figures/topic-word.png"/>
 
 
 
