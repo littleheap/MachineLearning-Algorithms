@@ -16,3 +16,4 @@
 |[8.EM Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/8.EM%20Model)|EM算法实战|
 |[9.Bayes Network](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/9.Bayes%20Network)|贝叶斯网络实战|
 |[10.LDA Topic Model](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/10.LDA%20Topic%20Model)|LDA主题模型实战|
+|[11.HMM](https://github.com/LittleHeap/MachineLearning-Algorithms/tree/master/11.HMM)|HMM隐马尔可夫模型实战|
