@@ -17,7 +17,7 @@
 
 ### 效果图
 #### ·股票组分分析
-<img width="550" height="600" src="./figures/stock.png"/>
+<img width="550" height="450" src="./figures/stock.png"/>
 
 
 
