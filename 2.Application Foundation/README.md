@@ -1,4 +1,4 @@
-## Management Foundation
+## Application Foundation
 ## (概念操作基础)
 
 ### 项目背景
